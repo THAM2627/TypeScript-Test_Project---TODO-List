@@ -1,3 +1,3 @@
-const list =  document.querySelector("#list")
-const form = document.querySelector("#new-task-form")
-const input = document.querySelector("#new-task-title")
+const list =  document.querySelector<HTMLUListElement>("#list")
+const form = document.getElementById("#new-task-form") as HTMLFormElement
+const input = document.querySelector<HTMLInputElement>("#new-task-title")
