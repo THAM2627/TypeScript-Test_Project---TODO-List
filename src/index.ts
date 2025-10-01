@@ -12,19 +12,20 @@ const list =  document.querySelector<HTMLUListElement>("#list")
 const form = document.getElementById("#new-task-form") as HTMLFormElement
 const input = document.querySelector<HTMLInputElement>("#new-task-title")
 
-form.addEventListener("submit", e => {
+form?.addEventListener("submit", e => {
   e.preventDefault()
 
   if(input?.value == "" || input?.value==null) return
 
-  const newTask = {
+  const newTask: Task = {
     id: uuidV4(),
     title: input.value,
-    completed: Boolean,
-    createdAt: Date(),
+    completed: false,
+    createdAt: new Date(),
   }
   
   addListItem(newTask)
+  input.value
 })
 
 function addListItem (task: Task) {
@@ -32,5 +33,8 @@ function addListItem (task: Task) {
   const label = document.createElement("label")
   const checkbox = document.createElement("input")
   checkbox.type = "checkbox"
+  checkbox.checked = task.completed
   label.append(checkbox, task.title)
+  item.append(label)
+  list?.append(item)
 }
