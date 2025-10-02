@@ -1,4 +1,7 @@
-import { v4 as uuidV4 } from 'uuid'
+
+function generateId(): string {
+  return Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
+}
 
 type Task = {
    id: string,
@@ -19,13 +22,13 @@ form?.addEventListener("submit", e => {
   if(input?.value == "" || input?.value==null) return
 
   const newTask: Task = {
-    id: uuidV4(),
+  id: generateId(),
     title: input.value,
     completed: false,
     createdAt: new Date(),
   }
   tasks.push(newTask)
-  
+
   addListItem(newTask)
   input.value = " "
 })
