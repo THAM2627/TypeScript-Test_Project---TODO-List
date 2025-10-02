@@ -2,7 +2,7 @@
 exports.__esModule = true;
 var uuid_1 = require("uuid");
 var list = document.querySelector("#list");
-var form = document.getElementById("#new-task-form");
+var form = document.getElementById("new-task-form");
 var input = document.querySelector("#new-task-title");
 var tasks = [];
 form === null || form === void 0 ? void 0 : form.addEventListener("submit", function (e) {
@@ -16,7 +16,6 @@ form === null || form === void 0 ? void 0 : form.addEventListener("submit", func
         createdAt: new Date()
     };
     tasks.push(newTask);
-    tasks.push(true);
     addListItem(newTask);
     input.value = " ";
 });
