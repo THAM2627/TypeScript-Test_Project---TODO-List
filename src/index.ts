@@ -3,13 +3,13 @@ import { v4 as uuidV4 } from 'uuid'
 type Task = {
    id: string,
   title: string,
-  completed: Boolean,
+  completed: boolean,
   createdAt: Date,
   
 }
 
 const list =  document.querySelector<HTMLUListElement>("#list")
-const form = document.getElementById("#new-task-form") as HTMLFormElement
+const form = document.getElementById("new-task-form") as HTMLFormElement
 const input = document.querySelector<HTMLInputElement>("#new-task-title")
 const tasks: Task[] = [ ]
 
@@ -25,7 +25,6 @@ form?.addEventListener("submit", e => {
     createdAt: new Date(),
   }
   tasks.push(newTask)
-  tasks.push(true)
   
   addListItem(newTask)
   input.value = " "
