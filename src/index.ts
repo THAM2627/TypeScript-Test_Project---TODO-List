@@ -45,3 +45,13 @@ function addListItem (task: Task) {
   item.append(label)
   list?.append(item)
 }
+
+function saveTasks() {
+  localStorage.setItem("TASKS", JSON.stringify(tasks))
+}
+
+function loadTasks(): Task[] {
+  const taskJSON = localStorage.getItem("TASKS")
+  if (taskJSON == null) return []
+  return JSON.parse(taskJSON)
+}
